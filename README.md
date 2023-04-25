@@ -13,7 +13,7 @@
 
 ## Features
 
-- Load your configuration with environment variables, json/yaml/toml configuration files or remote endpoints.
+- Load your configuration with environment variables, json/yaml/toml configuration files.
 - Validate your configuration with [class-validator](https://github.com/typestack/class-validator) and [class-transformer](https://github.com/typestack/class-transformer).
 - Provide easy to use options by default, meanwhile everything is customizable.
 
