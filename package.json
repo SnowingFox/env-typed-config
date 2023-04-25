@@ -1,18 +1,24 @@
 {
-  "name": "type-config",
+  "name": "env-typed-config",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2-beta.0",
   "packageManager": "pnpm@7.4.0",
   "description": "",
   "author": "snowingfox",
   "license": "MIT",
-  "homepage": "https://github.com/snowingfox/type-config#readme",
+  "homepage": "https://github.com/snowingfox/env-typed-config#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/snowingfox/type-config.git"
+    "url": "git+https://github.com/snowingfox/env-typed-config.git"
   },
-  "bugs": "https://github.com/snowingfox/type-config/issues",
-  "keywords": [],
+  "bugs": "https://github.com/snowingfox/env-typed-config/issues",
+  "keywords": [
+    "config",
+    "env",
+    "typed",
+    "typescript",
+    "typed-config"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
