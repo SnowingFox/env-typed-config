@@ -6,5 +6,6 @@ export default defineConfig({
   target: 'node14',
   splitting: true,
   dts: true,
+  external: ['reflect-metadata'],
   clean: true,
 })
