@@ -27,7 +27,7 @@ $ npm i env-typed-config
 
 ## Inspiration
 
-Thanks to the `nest-typed-config` library
+Thanks to the [nest-typed-config](https://github.com/Nikaple/nest-typed-config) library
 
 ##
 
