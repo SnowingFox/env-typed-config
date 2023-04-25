@@ -113,7 +113,7 @@ The `dotenvLoader` function allows you to load configuration with [dotenv](https
 #### Example
 
 ```ts
-const config defineConfig({
+const config = defineConfig({
   schema: RootConfig,
   load: dotenvLoader({
     /* options */
@@ -189,7 +189,7 @@ By default, `fileLoader` searches for `.env.{ext}` (ext = json, yaml, toml, js) 
 #### Example
 
 ```ts
-defineConfig({
+const config = defineConfig({
   schema: RootConfig,
   load: fileLoader({
     /* options */
@@ -230,68 +230,12 @@ export interface FileLoaderOptions extends Partial<OptionsSync> {
 
 If you want to add support for other extensions, you can use [`loaders`](https://github.com/davidtheclark/cosmiconfig#loaders) property provided by `cosmiconfig`:
 
-```ts
-defineConfig({
-  schema: RootConfig,
-  load: fileLoader({
-    // .env.ini has the highest priority now
-    loaders: {
-      '.ini': iniLoader,
-    },
-  }),
-});
-```
-
-#### Passing options
-
-The `directoryLoader` function optionally expects a `DirectoryLoaderOptions` object as a first parameter:
-
-```ts
-import { OptionsSync } from 'cosmiconfig';
-
-export interface DirectoryLoaderOptions extends OptionsSync {
-  /**
-   * The directory containing all configuration files.
-   */
-  directory: string;
-  /**
-   * File regex to include.
-   */
-  include?: RegExp;
-  /**
-   * If "true", ignore environment variable substitution.
-   * Default: true
-   */
-  ignoreEnvironmentVariableSubstitution?: boolean;
-  /**
-   * If "true", disallow undefined environment variables.
-   * Default: true
-   */
-  disallowUndefinedEnvironmentVariables?: boolean;
-}
-```
-
-If you want to add support for other extensions, you can use [`loaders`](https://github.com/davidtheclark/cosmiconfig#loaders) property provided by `cosmiconfig`:
-
-```ts
-defineConfig({
-  schema: RootConfig,
-  load: directoryLoader({
-    directory: '/path/to/configuration',
-    // .env.ini has the highest priority now
-    loaders: {
-      '.ini': iniLoader,
-    },
-  }),
-});
-```
-
 ### Using multiple loaders
 
 Loading configuration from file system is convenient for development, but when it comes to deployment, you may need to load configuration from environment variables, especially in a dockerized environment. This can be easily achieved by providing multiple loaders. For example:
 
 ```ts
-defineConfig({
+const config = defineConfig({
   schema: RootConfig,
   // Loaders having larger index take precedence over smaller ones,
   // make sure dotenvLoader comes after fileLoader ensures that
@@ -312,7 +256,7 @@ defineConfig({
 If native loaders provided by `env-typed-config` can't meet your needs, you can implement a custom loader. This can be achieved by providing a function which returns the configuration object synchronously or asynchronously through the `load` option. For example:
 
 ```ts
-defineConfig({
+const config = defineConfig({
   schema: RootConfig,
   load: async () => {
     return {
@@ -388,7 +332,7 @@ export class Config {
 }
 
 // typed.config.ts
-defineConfig({
+const config = defineConfig({
   schema: RootConfig,
   load: dotenvLoader(),
   normalize(config) {
@@ -423,7 +367,7 @@ export class Config {
 If the default `validate` function doesn't suite your use case, you can provide it like in the example below:
 
 ```ts
-defineConfig({
+const config = defineConfig({
   schema: RootConfig,
   validate: (rawConfig: any) => {
     const config = plainToClass(RootConfig, rawConfig);
