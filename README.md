@@ -27,18 +27,18 @@ $ npm i env-typed-config
 
 ## Inspiration
 
-There are various popular configuration modules for [Nest framework](https://github.com/nestjs/nest), such as the [official configuration module](https://github.com/nestjs/config), [nestjs-config](https://github.com/nestjsx/nestjs-config) and [nestjs-easyconfig](https://github.com/rubiin/nestjs-easyconfig). These modules can help to manage configurations, validate them, and load them through the `ConfigService`. But that's when type-safety is gone. For example:
+Thanks to the `nest-typed-config` library
+
+##
+
+There are various popular configuration library in Node.js like dotenv
 
 ```ts
-// @nestjs/config, with type-casting
-const dbUser = this.configService.get<string>('DATABASE_USER');
-// nestjs-config, returns `any` type
-const env = this.config.get('app.environment');
-// nestjs-easyconfig, only string is supported
-const value = this.config.get('key');
+const port: number = process.env.SERVER_PORT;
+const host: string = process.env.SERVER_HOST;
 ```
 
-Writing type casting is a pain and hard to maintain, and it's common to use non-string configurations in real-world projects. This module aims to provide an intuitive and type-safe way to load, validate and use configurations. Just import any config model, and inject it with full TypeScript support. In a nutshell:
+Writing strings to read config is error-prone and hard to maintain. `env-typed-config` provides a better way to read config with type safety and validation.
 
 ```toml
 #.env.toml
